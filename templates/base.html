@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style>
+            .error {
+                color: red;
+            }
+            .success{
+                color: green;
+            }
+        </style>
+    </head>
+<body style="background-color:coral">
+
+    {% block content %}
+    {% endblock %}
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    <ul>
+    {% for category,message in messages %}
+        <li class="{{category}}">{{message}}</li>
+    {% endfor %}
+    </ul>
+    {% endwith %}
+
+    <footer>
+        <br>
+        <br>
+        <br>
+        
+        <div>
+            {% if endpoint != '/login' and endpoint != '/register' %}
+                <p><a href="./logout">Log Out</a></p>
+                <p><a href="./blog">Home</a></p>
+                <p><a href="./myblog">My Blog</a></p>
+                <p><a href="./newblog">New Post</a></p>
+                <p><a href="./register">Register</a></p>
+            {% endif %}
+            {% if endpoint == '/register' %}
+                <p><a href="./login">Log In</a></p>
+            {% endif %}
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article>
+    <h1>{{blog.name}}</h1>
+    <p>Posted by {{blog.owner.email}}</p>
+
+    <hr />
+
+    <p><b>{{blog.body}}</b></p>
+
+
+     
+</article>
+{% endblock %}
