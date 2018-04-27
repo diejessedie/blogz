@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1 style="font-size:2.5em">U$ER$</h1>
+
+
+{% if users|length == 0 %}
+    <h2>No users yet!</h2>
+{% else %}
+
+
+    {% for user in users %}
+    <hr />
+    <p><em><a href="./userblog?id={{user.id}}">{{user.username}}</a>'s Page</em></p>
+    <hr />
+    {% endfor %}
+
+
+{% endif %}
+{% endblock %}

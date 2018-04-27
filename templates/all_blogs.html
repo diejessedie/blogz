@@ -6,6 +6,8 @@
 <h1 style="font-size:2.5em">BLOG$</h1>
 {% elif endpoint == '/myblog' %}
 <h1 style="font-size:2.5em">MY BLOG$</h1>
+{% elif endpoint == '/userblog' %}
+<h1 style="font-size:2.5em">{{owner.username}}'s BLOG$</h1>
 {% endif %}
 
 
@@ -14,13 +16,16 @@
 {% else %}
 
 
-    {% for blog in blogs %}
+{% for blog in blogs %}
+    <hr />
+    {% if endpoint != '/userblog' %}
+    <p><em>posted by <a href="./userblog?id={{blog.owner.id}}">{{blog.owner.username}}</a></em></p>
+    {% endif %}
     <h2><a href="./post?id={{blog.id}}">{{blog.name}}</a></h2>
-    <p><em>Posted by {{blog.owner.email}}</em></p>
     <p>{{blog.body}}</p>
     <hr />
-    {% endfor %}
-        
+{% endfor %}
+
 
 {% endif %}
 {% endblock %}

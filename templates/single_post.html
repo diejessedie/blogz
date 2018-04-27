@@ -2,14 +2,15 @@
 
 {% block content %}
 <article>
+    <hr />
     <h1>{{blog.name}}</h1>
-    <p>Posted by {{blog.owner.email}}</p>
+    <p><em>Posted by <a href="./userblog?id={{blog.owner.id}}">{{blog.owner.username}}</a></em></p>
 
     <hr />
 
     <p><b>{{blog.body}}</b></p>
 
 
-     
+
 </article>
 {% endblock %}

@@ -5,6 +5,7 @@
 <h1>Register for Blogz!</h1>
 <form action='/register' method=post>
     <dl>
+      {{ render_field(form.username) }}
       {{ render_field(form.email) }}
       {{ render_field(form.password) }}
       {{ render_field(form.confirm) }}
